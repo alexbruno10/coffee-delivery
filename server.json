@@ -1,0 +1,153 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "title": "Expresso Tradicional",
+        "price": 4.00,
+        "description": "O tradicional café feito com água quente e grãos moídos",
+        "specifications": [
+            "Tradicional"
+        ],
+        "image": "expresso_tradicional.svg" 
+      },
+      {
+        "id": 2,
+        "title": "Expresso Americano",
+        "price": 5.00,
+        "description": "Expresso diluído, menos intenso que o tradicional",
+        "specifications": [
+            "Tradicional"
+        ],
+        "image": "expresso_americano.svg" 
+      },
+      {
+        "id": 3,
+        "title": "Expresso Cremoso",
+        "price": 5.50,
+        "description": "Café expresso tradicional com espuma cremosa",
+        "specifications": [
+            "Tradicional"
+        ],
+        "image": "expresso_cremoso.svg" 
+      },
+      {
+        "id": 4,
+        "title": "Expresso Gelado",
+        "price": 7.00,
+        "description": "Bebida preparada com café expresso e cubos de gelo",
+        "specifications  ": [
+            "Tradicional",
+            "Gelado"
+        ],
+        "image": "expresso_gelado.svg" 
+      },
+      {
+        "id": 5,
+        "title": "Café com Leite",
+        "price": 5.00,
+        "description": "Meio a meio de expresso tradicional com leite vaporizado",
+        "specifications  ": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "image": "cafe_com_leite.svg" 
+      },
+      {
+        "id": 6,
+        "title": "Latte",
+        "price": 6.50,
+        "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+        "specifications  ": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "image": "latte.svg" 
+      },
+      {
+        "id": 7,
+        "title": "Capuccino",
+        "price": 6.50,
+        "description": "Bebida com canela feita de doses igual de café, leite e espuma",
+        "specifications  ": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "image": "capuccino.svg" 
+      },
+      {
+        "id": 8,
+        "title": "Macchiato",
+        "price": 7.50,
+        "description": "Café expresso misturado com um pouco de leite quente e espuma",
+        "specifications  ": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "image": "macchiato.svg" 
+      },
+      {
+        "id": 9,
+        "title": "Mocaccino",
+        "price": 8.00,
+        "description": "Café expresso com calda de chocolate, pouco leite e espuma",
+        "specifications  ": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "image": "mocaccino.svg" 
+      },
+      {
+        "id": 10,
+        "title": "Chocolate Quente",
+        "price": 7.00,
+        "description": "Bebida feita com chocolate dissolvido no leite quente e café",
+        "specifications  ": [
+            "Especial",
+            "Com leite"
+        ],
+        "image": "chocolate_quente.svg" 
+      },
+      {
+        "id": 11,
+        "title": "Cubano",
+        "price": 10.00,
+        "description": "Dring gelado de café expresso com rum, creme de leite e hortelã",
+        "specifications  ": [
+            "Especial",
+            "Alcoólico",
+            "Gelado"
+        ],
+        "image": "cubano.svg" 
+      },
+      {
+        "id": 12,
+        "title": "Havaiano",
+        "price": 9.00,
+        "description": "Bebida adocicada preparada com café e leite de coco",
+        "specifications  ": [
+            "Especial"
+        ],
+        "image": "havaiano.svg" 
+      },
+      {
+        "id": 13,
+        "title": "Árabe",
+        "price": 12.00,
+        "description": "Bebida preparada com grãos de café árabe e especiarias",
+        "specifications  ": [
+            "Especial"
+        ],
+        "image": "arabe.svg" 
+      },
+      {
+        "id": 13,
+        "title": "Irlandês",
+        "price": 16.00,
+        "description": "Bebida a base de café, uísque irlandês, açucar e chantilly",
+        "specifications  ": [
+            "Especial"
+        ],
+        "image": "irlandes.svg" 
+      }
+    ]
+  }
