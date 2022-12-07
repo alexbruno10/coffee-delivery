@@ -20,13 +20,29 @@ export const HeaderContainer = styled.header`
 export const HeaderButtons = styled.div`
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 2px;
     width: 20rem;
 `
 export const HeaderButtonLocal = styled.button`
     display: flex;
     align-items: center;
-    width: 18rem;
+    width: 19rem;
+    justify-content: center;
+    gap: 0.25rem;
+    min-width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.6rem;
+    border: none;
+    padding: 0 0.5rem;
+    position: relative;
+    background: ${(props) => props.theme['purple-100']};
+    font-size: small;
+`
+
+export const HeaderButtonCart = styled.button`
+    display: flex;
+    align-items: center;
+    width: 1rem;
     justify-content: center;
     gap: 0.25rem;
     min-width: 2.3rem;
