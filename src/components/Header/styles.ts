@@ -20,8 +20,8 @@ export const HeaderContainer = styled.header`
 export const HeaderButtons = styled.div`
     display: flex;
     align-items: center;
-    gap: 2px;
-    width: 20rem;
+    gap: 0.75rem;
+    width: 11rem;
 `
 export const HeaderButtonLocal = styled.button`
     display: flex;
@@ -35,7 +35,8 @@ export const HeaderButtonLocal = styled.button`
     border: none;
     padding: 0 0.5rem;
     position: relative;
-    background: ${(props) => props.theme['purple-100']};
+    background: ${(props) => props.theme['purple-dark']};
+    color: ${(props) => props.theme['purple']};
     font-size: small;
 `
 
@@ -51,6 +52,12 @@ export const HeaderButtonCart = styled.button`
     border: none;
     padding: 0 0.5rem;
     position: relative;
-    background: ${(props) => props.theme['purple-100']};
+    background: ${(props) => props.theme['yellow']};
+    color: ${(props) => props.theme['yellow-dark']};
     font-size: small;
+
+    &:hover {
+      background: ${(props) => props.theme['purple-dark']};
+      color: ${(props) => props.theme['purple']};
+    }
 `
