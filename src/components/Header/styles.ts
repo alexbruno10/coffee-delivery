@@ -1,3 +1,5 @@
+
+
 import styled, { ThemeConsumer } from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -7,7 +9,6 @@ export const HeaderContainer = styled.header`
   height: 6.5rem;
   background: ${(props) => props.theme['background']};
   justify-content: center;
-
   > div {
     width: 100%;
     display: flex;
@@ -38,6 +39,12 @@ export const HeaderButtonLocal = styled.button`
     background: ${(props) => props.theme['purple-dark']};
     color: ${(props) => props.theme['purple']};
     font-size: small;
+
+    &:hover {
+      /* background: ${(props) => props.theme['purple-dark']}; */
+      //color: ${(props) => props.theme['purple']};
+      filter: brightness(0.9);
+    }
 `
 
 export const HeaderButtonCart = styled.button`
@@ -57,7 +64,8 @@ export const HeaderButtonCart = styled.button`
     font-size: small;
 
     &:hover {
-      background: ${(props) => props.theme['purple-dark']};
-      color: ${(props) => props.theme['purple']};
+      /* background: ${(props) => props.theme['purple-dark']}; */
+      //color: ${(props) => props.theme['purple']};
+      filter: brightness(0.9);
     }
 `
