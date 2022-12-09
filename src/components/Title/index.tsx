@@ -1,8 +1,13 @@
-import {TitleContainer, TitleFormat, TitleIcons, FirstIcons, SecondIcons} from './styles'
+import {TitleContainer, TitleFormat, TitleIcons } from './styles'
 import CoffeeLogo from '../../assets/coffee/coffee.svg'
 import { Coffee, Timer, Package, ShoppingCart } from 'phosphor-react'
+import IconTitle from '../IconTitle'
+import { useTheme } from 'styled-components'
 
 export default function Title() {
+
+    const {colors} = useTheme();
+
     return (
         <>
         <TitleContainer>
@@ -12,19 +17,36 @@ export default function Title() {
                 <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
 
                 <TitleIcons>
-                    <FirstIcons>
-                        <ShoppingCart size={20} width="fill"/>
-                            <span>Compra simples e segura</span>
-                        <Package size={20} width="fill"/>
-                            <span>Embalagem mantém o café intacto</span>
-                    </FirstIcons>
-                    <SecondIcons>
-                        <Coffee size={20} width="fill"/>
-                        <Timer size={20} width="fill"/>
-                    </SecondIcons>
+
+                    <IconTitle 
+                    icon={<ShoppingCart weight="fill"/>}
+                    text={'Compra simples e segura'}
+                    iconColor={colors['yellow-dark']}
+                    />
+
+                    <IconTitle 
+                    icon={<Package weight="fill"/>}
+                    text={'Embalagem mantém o café intacto'}
+                    iconColor={colors['gray-500']}
+                    />
+                    
+                    <IconTitle 
+                    icon={<Timer weight="fill"/>}
+                    text={'Entrega rápida e rastreada'}
+                    iconColor={colors['yellow-brand']}
+                    />
+                    
+                    <IconTitle 
+                    icon={<Coffee weight="fill"/>}
+                    text={'O café chega fresquinho até você'}
+                    iconColor={colors['purple']}
+                    />
+
+
                 </TitleIcons>
 
                 </TitleFormat>
+
                 <img src={CoffeeLogo} alt="" />
             </div>
         </TitleContainer>

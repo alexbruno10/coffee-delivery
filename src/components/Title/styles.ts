@@ -33,16 +33,9 @@ export const TitleFormat = styled.div`
 `
 
 export const TitleIcons = styled.div`
-width: 100%;
-    display: inline-block;
-    margin: 0 auto;
-    padding-top: 4rem;
-    align-items: flex-start;
-`
-
-export const FirstIcons = styled.div`
-    display: flex;
-`
-export const SecondIcons = styled.div`
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.25rem;
+    margin-top: 4.125rem;
 `

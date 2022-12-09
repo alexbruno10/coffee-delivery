@@ -1,5 +1,4 @@
 
-
 import styled, { ThemeConsumer } from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -7,7 +6,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   height: 6.5rem;
-  background: ${(props) => props.theme['background']};
+  background: ${(props) => props.theme.colors['background']};
   justify-content: center;
   > div {
     width: 100%;
@@ -17,7 +16,7 @@ export const HeaderContainer = styled.header`
     margin-right: auto;
     margin-left: auto;
   }
-`
+` 
 export const HeaderButtons = styled.div`
     display: flex;
     align-items: center;
@@ -36,13 +35,11 @@ export const HeaderButtonLocal = styled.button`
     border: none;
     padding: 0 0.5rem;
     position: relative;
-    background: ${(props) => props.theme['purple-dark']};
-    color: ${(props) => props.theme['purple']};
+    background: ${(props) => props.theme.colors['purple-dark']};
+    color: ${(props) => props.theme.colors['purple']};
     font-size: small;
 
     &:hover {
-      /* background: ${(props) => props.theme['purple-dark']}; */
-      //color: ${(props) => props.theme['purple']};
       filter: brightness(0.9);
     }
 `
@@ -59,13 +56,11 @@ export const HeaderButtonCart = styled.button`
     border: none;
     padding: 0 0.5rem;
     position: relative;
-    background: ${(props) => props.theme['yellow']};
-    color: ${(props) => props.theme['yellow-dark']};
+    background: ${(props) => props.theme.colors['yellow']};
+    color: ${(props) => props.theme.colors['yellow-dark']};
     font-size: small;
 
     &:hover {
-      /* background: ${(props) => props.theme['purple-dark']}; */
-      //color: ${(props) => props.theme['purple']};
       filter: brightness(0.9);
     }
 `
