@@ -1,12 +1,13 @@
 
 import styled, { ThemeConsumer } from 'styled-components'
+import introBackground from '../../assets/intro-background.png'
 
 export const TitleContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   height: 34rem;
-  background: ${(props) => props.theme['background']};
+  background: ${() => `url(${introBackground})`};
   justify-content: center;
   > div {
     width: 100%;
