@@ -4,6 +4,8 @@ export const defaultTheme = {
       white: '#FFF',
 
       background: '#FAFAFA',
+
+      'background-card': '#F3F2F2',
   
       'purple': '#8047F8',
       'purple-dark': '#EBE5F9',

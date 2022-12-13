@@ -8,6 +8,9 @@ export const HeaderContainer = styled.header`
   height: 6.5rem;
   background: ${(props) => props.theme.colors['background']};
   justify-content: center;
+  position: sticky;
+  z-index: 5;
+  top: 0;
   > div {
     width: 100%;
     display: flex;
