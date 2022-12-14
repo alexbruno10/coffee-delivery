@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const CardContainer = styled.div`
+    display: grid;
     width: 16rem;
     height: 19rem;
     left: 0;
@@ -10,7 +11,10 @@ export const CardContainer = styled.div`
     margin-top: 3rem;
 
     img {
-        margin-top: -2rem;
+        margin: -2rem auto 0.2rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
     }
 
     
