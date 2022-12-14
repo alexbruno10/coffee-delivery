@@ -13,8 +13,5 @@ export const CardContainer = styled.div`
         margin-top: -2rem;
     }
 
-    > div {
-        background-image: ${() => `url(http://localhost:5173/src/assets/coffee/arabe.svg)`};
-    }
     
 `

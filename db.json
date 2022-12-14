@@ -35,7 +35,7 @@
         "title": "Expresso Gelado",
         "price": 7.00,
         "description": "Bebida preparada com café expresso e cubos de gelo",
-        "specifications  ": [
+        "specifications": [
             "Tradicional",
             "Gelado"
         ],
@@ -46,7 +46,7 @@
         "title": "Café com Leite",
         "price": 5.00,
         "description": "Meio a meio de expresso tradicional com leite vaporizado",
-        "specifications  ": [
+        "specifications": [
             "Tradicional",
             "Com leite"
         ],
@@ -57,7 +57,7 @@
         "title": "Latte",
         "price": 6.50,
         "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
-        "specifications  ": [
+        "specifications": [
             "Tradicional",
             "Com leite"
         ],
@@ -68,7 +68,7 @@
         "title": "Capuccino",
         "price": 6.50,
         "description": "Bebida com canela feita de doses igual de café, leite e espuma",
-        "specifications  ": [
+        "specifications": [
             "Tradicional",
             "Com leite"
         ],
@@ -79,7 +79,7 @@
         "title": "Macchiato",
         "price": 7.50,
         "description": "Café expresso misturado com um pouco de leite quente e espuma",
-        "specifications  ": [
+        "specifications": [
             "Tradicional",
             "Com leite"
         ],
@@ -90,7 +90,7 @@
         "title": "Mocaccino",
         "price": 8.00,
         "description": "Café expresso com calda de chocolate, pouco leite e espuma",
-        "specifications  ": [
+        "specifications": [
             "Tradicional",
             "Com leite"
         ],
@@ -101,7 +101,7 @@
         "title": "Chocolate Quente",
         "price": 7.00,
         "description": "Bebida feita com chocolate dissolvido no leite quente e café",
-        "specifications  ": [
+        "specifications": [
             "Especial",
             "Com leite"
         ],
@@ -112,7 +112,7 @@
         "title": "Cubano",
         "price": 10.00,
         "description": "Dring gelado de café expresso com rum, creme de leite e hortelã",
-        "specifications  ": [
+        "specifications": [
             "Especial",
             "Alcoólico",
             "Gelado"
@@ -124,7 +124,7 @@
         "title": "Havaiano",
         "price": 9.00,
         "description": "Bebida adocicada preparada com café e leite de coco",
-        "specifications  ": [
+        "specifications": [
             "Especial"
         ],
         "image": "havaiano.svg" 
@@ -134,7 +134,7 @@
         "title": "Árabe",
         "price": 12.00,
         "description": "Bebida preparada com grãos de café árabe e especiarias",
-        "specifications  ": [
+        "specifications": [
             "Especial"
         ],
         "image": "arabe.svg" 
@@ -144,7 +144,7 @@
         "title": "Irlandês",
         "price": 16.00,
         "description": "Bebida a base de café, uísque irlandês, açucar e chantilly",
-        "specifications  ": [
+        "specifications": [
             "Especial"
         ],
         "image": "irlandes.svg" 
