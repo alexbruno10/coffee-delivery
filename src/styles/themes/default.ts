@@ -6,6 +6,7 @@ export const defaultTheme = {
       background: '#FAFAFA',
 
       'background-card': '#F3F2F2',
+      'base-subtitle': '##403937',
   
       'purple': '#8047F8',
       'purple-dark': '#EBE5F9',
@@ -15,7 +16,7 @@ export const defaultTheme = {
   
       'title': '#272221',
     
-      'gray-100': '#E1E1E6',
+      'gray-100': '#8D8686',
       'gray-300': '#C4C4CC',
       'gray-400': '#8D8D99',
       'gray-500': '#574F4D',

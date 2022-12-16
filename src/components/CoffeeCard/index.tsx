@@ -1,4 +1,4 @@
-import { CardContainer } from "./styles";
+import { CardContainer, CardSpecifications, CardTitle, CardDescription } from "./styles";
 
 
 interface CoffeeCardProps {
@@ -15,9 +15,13 @@ export default function CoffeeCard({ title, price, description, specifications, 
         <CardContainer>
 
             <img src={`http://localhost:5173/src/assets/coffee/${image}`} alt="" />
-            <span>{specifications}</span>
-            <p>{title}</p>
-            <p>{description}</p>
+            <CardSpecifications>
+                {specifications?.map(specifications => (
+                    <span key={`${specifications}${title}`}>{specifications}</span>
+                ))}
+            </CardSpecifications>
+            <CardTitle>{title}</CardTitle>
+            <CardDescription>{description}</CardDescription>
             <span>{price}</span>
 
         </CardContainer>
