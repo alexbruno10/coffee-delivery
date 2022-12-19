@@ -17,7 +17,7 @@ export default function Header() {
                     Varginha, MG
                 </HeaderButtonLocal>
                 <HeaderButtonCart>
-                    <ShoppingCart size={20} width="fill"/>
+                    <ShoppingCart size={20} weight="fill"/>
                 </HeaderButtonCart>
             </HeaderButtons>
 

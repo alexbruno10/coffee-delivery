@@ -6,10 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-  :focus {
+  /* :focus {
     outline: none;
     box-shadow: 0 0 0 2px ${(props) => props.theme.colors['green-500']};
-  }
+  } */
   body {
     background: ${(props) => props.theme.colors['background']};
     -webkit-font-smoothing: antialiased;

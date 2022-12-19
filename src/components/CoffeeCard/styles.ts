@@ -70,3 +70,43 @@ export const CardDescription = styled.span`
 
     color: ${({theme}) => theme.colors["gray-100"]};
 `
+
+export const CardFooter = styled.div`
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+`
+
+export const CardFooterQtd = styled.div`
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.25rem;
+
+    width: 4.5rem;
+    height: 2.3rem;
+
+    border-radius: 0.37rem;
+    background: ${({theme}) => theme.colors["base-gray"]};
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    gap: 0.7rem;
+`
+
+export const CardPlusMinusButton = styled.button`
+    display: flex;
+    border: none;
+    background: ${({theme}) => theme.colors["base-gray"]};
+    color: ${({theme}) => theme.colors["purple"]};
+`
+
+
+

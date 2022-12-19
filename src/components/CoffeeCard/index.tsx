@@ -1,5 +1,5 @@
-import { CardContainer, CardSpecifications, CardTitle, CardDescription } from "./styles";
-
+import { CardContainer, CardSpecifications, CardTitle, CardDescription, CardFooter, CardFooterQtd, CardPlusMinusButton} from "./styles";
+import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 
 interface CoffeeCardProps {
     title: string,
@@ -22,7 +22,21 @@ export default function CoffeeCard({ title, price, description, specifications, 
             </CardSpecifications>
             <CardTitle>{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
-            <span>{price}</span>
+            <CardFooter>
+            <span>R$ {price}</span>
+
+                <CardFooterQtd>
+                    <CardPlusMinusButton >
+                        <Minus size={14} weight="fill"/>
+                    </CardPlusMinusButton>
+                    <span>1</span>
+                    <CardPlusMinusButton>
+                        <Plus size={14} weight="fill"/>
+                    </CardPlusMinusButton>
+                </CardFooterQtd>   
+
+            <button><ShoppingCartSimple /></button>
+            </CardFooter>
 
         </CardContainer>
         </>
