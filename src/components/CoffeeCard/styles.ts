@@ -76,6 +76,8 @@ export const CardFooter = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding: 0px;
+    margin: 0 1.5rem 1.0rem 1.5rem;
 
 `
 
@@ -106,6 +108,32 @@ export const CardPlusMinusButton = styled.button`
     border: none;
     background: ${({theme}) => theme.colors["base-gray"]};
     color: ${({theme}) => theme.colors["purple"]};
+`
+
+export const CardPrice = styled.span`
+    font-family: 'Baloo 2';
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: ${({theme}) => theme.colors["gray-500"]};
+`
+
+export const CardCart = styled.button`
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: ${({theme}) => theme.colors["purple-dark"]};
+    color: ${({theme}) => theme.colors["white"]};
+    height: 2.37rem;
+    width: 2.37rem;
+    border-radius: 0.37rem;
+    border: none;
+
+    &:hover {
+        filter: brightness(0.7);
+    }
+
 `
 
 

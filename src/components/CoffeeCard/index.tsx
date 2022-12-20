@@ -1,5 +1,6 @@
-import { CardContainer, CardSpecifications, CardTitle, CardDescription, CardFooter, CardFooterQtd, CardPlusMinusButton} from "./styles";
+import { CardContainer, CardSpecifications, CardTitle, CardDescription, CardFooter, CardCart ,CardFooterQtd, CardPrice, CardPlusMinusButton} from "./styles";
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
+import { formatMoney } from "../../utils/formatedMoney";
 
 interface CoffeeCardProps {
     title: string,
@@ -10,6 +11,9 @@ interface CoffeeCardProps {
 }
 
 export default function CoffeeCard({ title, price, description, specifications, image }: CoffeeCardProps) {
+
+    const formatedPrice = formatMoney(price)
+
     return (
         <>
         <CardContainer>
@@ -23,7 +27,9 @@ export default function CoffeeCard({ title, price, description, specifications, 
             <CardTitle>{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
             <CardFooter>
-            <span>R$ {price}</span>
+
+                
+            <span>R$ <CardPrice>{formatedPrice}</CardPrice></span>
 
                 <CardFooterQtd>
                     <CardPlusMinusButton >
@@ -35,7 +41,10 @@ export default function CoffeeCard({ title, price, description, specifications, 
                     </CardPlusMinusButton>
                 </CardFooterQtd>   
 
-            <button><ShoppingCartSimple /></button>
+            <CardCart>
+                <ShoppingCartSimple size={20} weight="fill"/>
+            </CardCart>
+
             </CardFooter>
 
         </CardContainer>

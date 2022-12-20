@@ -9,7 +9,8 @@ export const defaultTheme = {
       'base-subtitle': '##403937',
   
       'purple': '#8047F8',
-      'purple-dark': '#EBE5F9',
+      'purple-dark': '#4B2995',
+      'purple-300': '#EBE5F9',
       'yellow-dark': '#C47F17',
       'yellow-brand': '#DBAC2C',
       'yellow': '#F1E9C9',

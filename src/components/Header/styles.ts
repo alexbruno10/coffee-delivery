@@ -33,12 +33,12 @@ export const HeaderButtonLocal = styled.button`
     justify-content: center;
     gap: 0.25rem;
     min-width: 2.3rem;
-    height: 2.3rem;
+    height: 2.3rem; 
     border-radius: 0.6rem;
     border: none;
     padding: 0 0.5rem;
     position: relative;
-    background: ${(props) => props.theme.colors['purple-dark']};
+    background: ${(props) => props.theme.colors['purple-300']};
     color: ${(props) => props.theme.colors['purple']};
     font-size: small;
 
