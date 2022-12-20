@@ -104,10 +104,13 @@ export const CardFooterQtd = styled.div`
 `
 
 export const CardPlusMinusButton = styled.button`
-    display: flex;
-    border: none;
-    background: ${({theme}) => theme.colors["base-gray"]};
-    color: ${({theme}) => theme.colors["purple"]};
+
+        display: flex;
+        border: none;
+        background: none;
+        padding: 0;
+        color: ${({theme}) => theme.colors["purple"]};
+
 `
 
 export const CardPrice = styled.span`

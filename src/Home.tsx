@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Title from "./components/Title";
-import { products } from '../server.json';
+import { products } from '../db.json';
 import { useEffect } from "react";
 import CoffeeList from "./components/CoffeeList";
 
