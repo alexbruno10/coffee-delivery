@@ -32,7 +32,7 @@ export default function CoffeeCard({ id, title, price, description, specificatio
     function handleIncrementAmount(amount: number) {
         console.log(id);
         const newAmount = amount
-            setAmount(newAmount + 1)
+            setAmount(newAmount +1)
     }
 
     return (
