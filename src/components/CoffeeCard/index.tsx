@@ -23,7 +23,7 @@ export default function CoffeeCard({ title, price, description, specifications, 
         if(newAmount == 1) {
             return
         } else [
-            setAmount(newAmount-1)
+            setAmount(newAmount - 1)
         ]
 
     }
