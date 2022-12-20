@@ -1,5 +1,6 @@
 import { HeaderContainer, HeaderButtons, HeaderButtonLocal, HeaderButtonCart } from './styles'
 import Logo from '../../assets/coffee/logo.svg'
+import { NavLink } from 'react-router-dom'
 
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
@@ -13,8 +14,12 @@ export default function Header() {
             
             <HeaderButtons>
                 <HeaderButtonLocal>
-                    <MapPin size={20} weight="fill" />
-                    Varginha, MG
+                    {/* <MapPin size={20} weight="fill" />
+                    Varginha, MG */}
+                    {/* <NavLink to="/cart" title="Timer"> */}
+                        <MapPin size={20} weight="fill" />
+                        Varginha, MG
+                    {/* </NavLink> */}
                 </HeaderButtonLocal>
                 <HeaderButtonCart>
                     <ShoppingCart size={20} weight="fill"/>

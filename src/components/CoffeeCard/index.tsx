@@ -4,6 +4,7 @@ import { formatMoney } from "../../utils/formatedMoney";
 import { useState } from "react";
 
 interface CoffeeCardProps {
+    id: number,
     title: string,
     price: number,
     description: string,
@@ -11,7 +12,7 @@ interface CoffeeCardProps {
     image: string
 }
 
-export default function CoffeeCard({ title, price, description, specifications, image }: CoffeeCardProps) {
+export default function CoffeeCard({ id, title, price, description, specifications, image }: CoffeeCardProps) {
 
     const formatedPrice = formatMoney(price)
 
@@ -29,6 +30,7 @@ export default function CoffeeCard({ title, price, description, specifications, 
     }
 
     function handleIncrementAmount(amount: number) {
+        console.log(id);
         const newAmount = amount
             setAmount(newAmount + 1)
     }
