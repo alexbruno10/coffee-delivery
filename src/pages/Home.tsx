@@ -8,10 +8,8 @@ export default function Home() {
 
     return (
         <>
-            {/* <Header /> */}
             <Title />
             <CoffeeList/>
-
         </>
     )
 }
