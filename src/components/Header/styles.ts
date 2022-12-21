@@ -26,7 +26,7 @@ export const HeaderButtons = styled.div`
     gap: 0.75rem;
     width: 11rem;
 `
-export const HeaderButtonLocal = styled.button`
+export const HeaderButtonLocal = styled.nav`
     display: flex;
     align-items: center;
     width: 19rem;
@@ -47,7 +47,7 @@ export const HeaderButtonLocal = styled.button`
     }
 `
 
-export const HeaderButtonCart = styled.button`
+export const HeaderButtonCart = styled.nav`
     display: flex;
     align-items: center;
     width: 1rem;
@@ -63,7 +63,11 @@ export const HeaderButtonCart = styled.button`
     color: ${(props) => props.theme.colors['yellow-dark']};
     font-size: small;
 
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+
     &:hover {
       filter: brightness(0.9);
     }
+
 `

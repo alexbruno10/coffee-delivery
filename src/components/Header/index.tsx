@@ -9,21 +9,21 @@ export default function Header() {
         <>
             <HeaderContainer>
             <div>
+            <NavLink to="/" title="Home">
             <img src={Logo} alt="" />
+            </NavLink>
 
             
             <HeaderButtons>
                 <HeaderButtonLocal>
-                    {/* <MapPin size={20} weight="fill" />
-                    Varginha, MG */}
-                    {/* <NavLink to="/cart" title="Timer"> */}
                         <MapPin size={20} weight="fill" />
                         Varginha, MG
-                    {/* </NavLink> */}
                 </HeaderButtonLocal>
-                <HeaderButtonCart>
-                    <ShoppingCart size={20} weight="fill"/>
-                </HeaderButtonCart>
+                    <NavLink to="/cart" title="Cart">
+                        <HeaderButtonCart>
+                                <ShoppingCart size={20} weight="fill"/>
+                        </HeaderButtonCart>
+                    </NavLink>
             </HeaderButtons>
 
             </div>
