@@ -6,7 +6,7 @@ export const defaultTheme = {
       background: '#FAFAFA',
 
       'background-card': '#F3F2F2',
-      'base-subtitle': '##403937',
+      'base-subtitle': '#403937',
   
       'purple': '#8047F8',
       'purple-dark': '#4B2995',

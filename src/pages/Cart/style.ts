@@ -7,6 +7,7 @@ export const CartContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
     gap: 2rem;
+    padding-bottom: 9.53rem;
 `
 export const CartTitleRequest = styled.span`
 
@@ -95,3 +96,67 @@ export const CartConfirmRequest = styled.div`
     border-radius: 0.375rem 2.75rem;
     margin-top: 0.9rem;
 `
+
+export const CartTitleFormAddress = styled.div`
+
+    padding: 0px;
+    gap: 0.5rem;
+
+    width: 35rem;
+    height: 2.75rem;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+
+    >p {
+        display: flex;
+        font-weight: 400;
+        color: ${({theme}) => theme.colors["base-subtitle"]};
+        gap: 0.5rem;
+
+        svg {
+            color: ${({theme}) => theme.colors["yellow-dark"]};
+        }
+    }
+
+    span {
+        font-size: 0.875rem;
+        color: ${({theme}) => theme.colors["base-subtitle"]};
+        padding-left: 2rem;
+    }
+`
+
+interface InputProps {
+    bg: string;
+}
+
+
+export const CartInputAddress = styled.input<InputProps>`
+    background-color:   ${(props) => props.bg};;
+`
+
+export const AddressFormContainer = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 12.5rem 17.25rem 3.75rem;
+    column-gap: 0.75rem;
+    row-gap: 1rem;
+    grid-auto-flow: dense;
+    
+    .cep {
+        grid-column: span 3;
+        max-width: 12.5rem;
+    }
+    .street {
+        grid-column: span 3;
+    }
+    .complement {
+        grid-column: span 2;
+    }
+`;
+

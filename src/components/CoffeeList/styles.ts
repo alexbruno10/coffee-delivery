@@ -4,8 +4,9 @@ import styled from 'styled-components'
 export const CoffeeListContainer = styled.div`
   width: 100%;
   align-items: center;
-  height: 6.5rem;
+  /* height: 6.5rem; */
   justify-content: center;
+  padding-bottom: 9.53rem;
 
   > span {
     margin-top: 2rem;
