@@ -109,7 +109,7 @@ export const CartTitleFormAddress = styled.div`
     order: 0;
     align-self: stretch;
     flex-grow: 0;
-    margin-left: 1rem;
+    margin-left: 0.25rem;
     margin-top: 1rem;
     margin-right: 1rem;
 
@@ -137,17 +137,28 @@ interface InputProps {
 
 
 export const CartInputAddress = styled.input<InputProps>`
-    background-color:   ${(props) => props.bg};;
+    /* background-color:   ${(props) => props.bg}; */
+    grid-template-columns: ${(props) => props.bg};
 `
 
 export const AddressFormContainer = styled.div`
-    width: 100%;
+    width: 35rem;
+    height: 13.5rem;
     display: grid;
+    padding: 0;
     grid-template-columns: 12.5rem 17.25rem 3.75rem;
     column-gap: 0.75rem;
     row-gap: 1rem;
     grid-auto-flow: dense;
-    
+    margin-left: 0.25rem;
+
+    input {
+        background: ${({theme}) => theme.colors["base-input"]};
+        border: 1px solid ${({theme}) => theme.colors["base-gray"]};
+        border-radius: 0.25rem;
+        padding-left: 0.75rem;
+    }
+
     .cep {
         grid-column: span 3;
         max-width: 12.5rem;
@@ -158,5 +169,6 @@ export const AddressFormContainer = styled.div`
     .complement {
         grid-column: span 2;
     }
+
 `;
 
