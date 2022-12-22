@@ -97,7 +97,17 @@ export const CartConfirmRequest = styled.div`
     margin-top: 0.9rem;
 `
 
-export const CartTitleFormAddress = styled.div`
+interface TitleProps {
+
+    color: 'yellow' | 'purple';
+}
+
+const colors = {
+    yellow: '#C47F17',
+    purple: '#8047F8'
+}
+
+export const CartTitleForm = styled.div<TitleProps>`
 
     padding: 0px;
     gap: 0.5rem;
@@ -110,7 +120,7 @@ export const CartTitleFormAddress = styled.div`
     align-self: stretch;
     flex-grow: 0;
     margin-left: 0.25rem;
-    margin-top: 1rem;
+    margin-top: 0.1rem;
     margin-right: 1rem;
 
     >p {
@@ -120,7 +130,7 @@ export const CartTitleFormAddress = styled.div`
         gap: 0.5rem;
 
         svg {
-            color: ${({theme}) => theme.colors["yellow-dark"]};
+            color: ${(props) => colors[props.color]};
         }
     }
 
@@ -151,12 +161,14 @@ export const AddressFormContainer = styled.div`
     row-gap: 1rem;
     grid-auto-flow: dense;
     margin-left: 0.25rem;
-
+    
     input {
         background: ${({theme}) => theme.colors["base-input"]};
         border: 1px solid ${({theme}) => theme.colors["base-gray"]};
         border-radius: 0.25rem;
         padding-left: 0.75rem;
+        font-size: 0.875rem;
+        border: none;
     }
 
     .cep {
@@ -170,5 +182,61 @@ export const AddressFormContainer = styled.div`
         grid-column: span 2;
     }
 
-`;
+`
+
+export const TitlePayMethod = styled.div`
+    color: blue;
+`
+
+export const RadioBoxContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 0.725rem;
+
+    width: 35rem;
+    height: 3.1rem;
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+`
+
+interface RadioBoxProps {
+    isActive: boolean;
+    color: 'gray' | 'purple';
+}
+
+const RadioColors = {
+    gray: '#EEEDED',
+    purple: '#EBE5F9'
+}
+
+export const RadioBox = styled.button<RadioBoxProps>`
+    height: 100%;
+    border: 1px solid #d7d7d7;
+    border-radius: 0.375rem;
+    display: flex;
+    font-size: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s;
+    width: 35rem;
+    /* background: ${({theme}) => theme.colors["base-input"]}; */
+    background: ${(props) => props.isActive ? RadioColors["purple"] : RadioColors["gray"]};
+    border: none;
+    gap: 0.75rem;
+
+    &:hover{
+        filter: brightness(0.9);
+    }
+
+    svg {
+        color: ${({theme}) => theme.colors["purple"]};
+    }
+
+`
 
