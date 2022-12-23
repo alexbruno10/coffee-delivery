@@ -15,27 +15,37 @@ interface CoffeeCardProps {
 
 export default function CoffeeCard({ id, title, price, description, specifications, image }: CoffeeCardProps) {
 
+    
     const formatedPrice = formatMoney(price)
-
+    
+    
     const [amount, setAmount] = useState(1)
-
+    
     const { addCart } = useCart(); 
-
+    
     function handleDecrementAmount(amount: number) {
         const newAmount = amount
-
+        
         if(newAmount == 1) {
             return
         } else [
             setAmount(newAmount - 1)
         ]
-
+        
     }
-
+    
     function handleIncrementAmount(amount: number) {
         console.log(id);
         const newAmount = amount
-            setAmount(newAmount +1)
+        setAmount(newAmount +1)
+    }
+    
+    const coffee = {
+        id: id,
+        title: title,
+        price: price,
+        image: image,
+        amount: amount
     }
 
     return (
@@ -66,7 +76,7 @@ export default function CoffeeCard({ id, title, price, description, specificatio
                 </CardFooterQtd>   
 
             <CardCart
-            onClick={() => {addCart(title)}}
+            onClick={() => {addCart(coffee)}}
             >
                 <ShoppingCartSimple size={20} weight="fill"/>
             </CardCart>

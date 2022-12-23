@@ -90,7 +90,7 @@ export const CartConfirmRequest = styled.div`
     gap: 2rem;
 
     width: 28rem;
-    height: 31.12rem;
+    min-height: 31.12rem;
 
     background: ${({theme}) => theme.colors["background-card"]};
     border-radius: 0.375rem 2.75rem;
@@ -237,6 +237,34 @@ export const RadioBox = styled.button<RadioBoxProps>`
     svg {
         color: ${({theme}) => theme.colors["purple"]};
     }
+
+`
+export const CartConfirmCard = styled.div`
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.5rem 0.25rem;
+    gap: 3.68rem;
+
+    width: 23rem;
+    height: 5rem;
+
+    border-bottom: 1px solid #E6E5E5;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+    img {
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }  
 
 `
 

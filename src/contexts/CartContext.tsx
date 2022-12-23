@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 interface CartProviderProps {
     children: ReactNode
@@ -12,23 +12,33 @@ interface Coffee {
     image: string
 }
 
+
+interface CartCoffeeData {
+    id: number,
+    title: string,
+    price: number,
+    image: string,
+    amount: number
+}
+
 interface CartContextType {
-    number: number,
-    addCart: (title: string) => void
-  }
+    cart: CartCoffeeData[],
+    addCart: (coffee : CartCoffeeData) => void
+}
 
 export const CartContext = createContext<CartContextType>({} as CartContextType)
 
 export default function CartProvider({ children }: CartProviderProps) {
 
-    const number = 10
+    const [cart, setCart] = useState<CartCoffeeData[]>([])
 
-    function addCart(title: string) {
-        console.log(title);
+    function addCart(coffee: CartCoffeeData) {
+        console.log(coffee);
+        setCart([...cart, coffee])
     }
 
     return (
-        <CartContext.Provider value={{number, addCart}}>
+        <CartContext.Provider value={{ cart, addCart }}>
             {children}
         </CartContext.Provider>
     )

@@ -8,14 +8,16 @@ CartTitleForm,
 CartConfirmRequest,
 AddressFormContainer,
 RadioBoxContainer,
-RadioBox 
+RadioBox,
+CartConfirmCard
 } from './style'
-import { MapPin, CurrencyDollar, CreditCard, Money, Bank } from 'phosphor-react'
+import { MapPin, CurrencyDollar, CreditCard, Money, Bank, Minus, Plus } from 'phosphor-react'
 import { useCart } from '../../contexts/CartContext';
+import { CardFooterQtd, CardPlusMinusButton } from '../../components/CoffeeCard/styles';
 
 export default function Cart () {
 
-    const { number } = useCart();
+    const { cart } = useCart();
 
     const [type, setType] = useState('');
 
@@ -79,7 +81,21 @@ export default function Cart () {
             <div>
                 <CartTitleRequest>Cafes selecionados</CartTitleRequest>
                 <CartConfirmRequest>
-                    {number}
+                    {cart.map(cart => (
+                        <CartConfirmCard key={cart.id}>
+                        <img src={`http://localhost:5173/src/assets/coffee/${cart.image}`} alt="" />
+                        <p>{cart.title}</p>
+                        <CardFooterQtd>
+                            <CardPlusMinusButton>
+                                    <Minus size={14} weight="fill"/>
+                            </CardPlusMinusButton>
+                            <span>2</span>
+                            <CardPlusMinusButton>
+                                    <Plus size={14} weight="fill"/>
+                            </CardPlusMinusButton>
+                        </CardFooterQtd>
+                        </CartConfirmCard>
+                    ))}
                 </CartConfirmRequest>
             </div>
 
