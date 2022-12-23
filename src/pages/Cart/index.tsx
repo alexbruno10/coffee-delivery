@@ -11,8 +11,11 @@ RadioBoxContainer,
 RadioBox 
 } from './style'
 import { MapPin, CurrencyDollar, CreditCard, Money, Bank } from 'phosphor-react'
+import { useCart } from '../../contexts/CartContext';
 
 export default function Cart () {
+
+    const { number } = useCart();
 
     const [type, setType] = useState('');
 
@@ -37,7 +40,6 @@ export default function Cart () {
                             <input type="text" className="district" placeholder="Bairro" required/>
                             <input type="text" className="city" placeholder="Cidade" required/>
                             <input type="text" className="uf" placeholder="UF" required/>
-
                         </AddressFormContainer>
                     </CartFormAddress>
 
@@ -77,7 +79,7 @@ export default function Cart () {
             <div>
                 <CartTitleRequest>Cafes selecionados</CartTitleRequest>
                 <CartConfirmRequest>
-
+                    {number}
                 </CartConfirmRequest>
             </div>
 

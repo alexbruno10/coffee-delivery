@@ -2,6 +2,7 @@ import { CardContainer, CardSpecifications, CardTitle, CardDescription, CardFoot
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import { formatMoney } from "../../utils/formatedMoney";
 import { useState } from "react";
+import { useCart } from "../../contexts/CartContext";
 
 interface CoffeeCardProps {
     id: number,
@@ -17,6 +18,8 @@ export default function CoffeeCard({ id, title, price, description, specificatio
     const formatedPrice = formatMoney(price)
 
     const [amount, setAmount] = useState(1)
+
+    const { addCart } = useCart(); 
 
     function handleDecrementAmount(amount: number) {
         const newAmount = amount
@@ -62,7 +65,9 @@ export default function CoffeeCard({ id, title, price, description, specificatio
                     </CardPlusMinusButton>
                 </CardFooterQtd>   
 
-            <CardCart>
+            <CardCart
+            onClick={() => {addCart(title)}}
+            >
                 <ShoppingCartSimple size={20} weight="fill"/>
             </CardCart>
 
