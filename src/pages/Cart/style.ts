@@ -245,8 +245,8 @@ export const CartConfirmCard = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 0.5rem 0.25rem;
-    gap: 3.68rem;
+    padding: auto;
+    gap: 2rem;
 
     width: 23rem;
     height: 5rem;
@@ -268,3 +268,77 @@ export const CartConfirmCard = styled.div`
 
 `
 
+export const CardButton = styled.div`
+    display: flex;
+    gap: 0.5rem;
+`
+
+export const CardPrice = styled.span`
+
+    display: flex;
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-right: 2rem;
+    color: #574F4D;
+
+    flex: none;
+`
+
+export const CardButtonRemove = styled.button`
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 0.5rem;
+    gap: 0.25rem;
+
+    width: 5.5rem;
+
+    background: #E6E5E5;
+    border-radius: 0.5rem;
+    border: none;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    &:hover{
+        filter: brightness(0.9);
+    }
+
+    svg {
+        
+        color: ${({theme}) => theme.colors["purple"]};
+    }
+
+    span {
+        font-size: 0.75rem;
+    }
+`
+
+export const CardSubmit = styled.div`
+
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: auto;
+    gap: 2rem;
+
+    width: 23rem;
+    height: 5.75rem;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+`
+
+export const CardSubmitValues = styled.div`
+    display: flex;
+    justify-content: space-between;
+`

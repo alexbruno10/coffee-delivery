@@ -4,15 +4,6 @@ interface CartProviderProps {
     children: ReactNode
 }
 
-interface Coffee {
-    id: number,
-    title: string,
-    price: number,
-    amount: number,
-    image: string
-}
-
-
 interface CartCoffeeData {
     id: number,
     title: string,
@@ -33,7 +24,10 @@ export default function CartProvider({ children }: CartProviderProps) {
     const [cart, setCart] = useState<CartCoffeeData[]>([])
 
     function addCart(coffee: CartCoffeeData) {
-        console.log(coffee);
+        console.log(coffee.price);
+        const newPrice = coffee.price * coffee.amount
+
+        console.log(newPrice)
         setCart([...cart, coffee])
     }
 
