@@ -30,6 +30,8 @@ export default function Cart () {
 
     const [type, setType] = useState('');
 
+    const [amount, setAmount] = useState(1)
+
     const totalValues =
     formatMoney(
       cart.reduce((sumTotal, product) => {
@@ -52,6 +54,23 @@ export default function Cart () {
 
         const formatedPrice = formatMoney(price)
         return formatedPrice
+    }
+
+    function handleDecrementAmount(amount: number) {
+        const newAmount = amount
+        
+        if(newAmount == 1) {
+            return
+        } else [
+            setAmount(newAmount - 1)
+        ]
+        
+    }
+    
+    function handleIncrementAmount(amount: number) {
+        
+        const newAmount = amount
+        setAmount(newAmount +1)
     }
 
     return (
@@ -121,11 +140,11 @@ export default function Cart () {
                             <p>{cart.title}</p>
                             <CardButton>
                                 <CardFooterQtd>
-                                    <CardPlusMinusButton>
+                                    <CardPlusMinusButton onClick={() => handleDecrementAmount(cart.amount)}>
                                             <Minus size={14} weight="fill"/>
                                     </CardPlusMinusButton>
                                     <span>{cart.amount}</span>
-                                    <CardPlusMinusButton>
+                                    <CardPlusMinusButton onClick={() => handleIncrementAmount(cart.amount)}>
                                             <Plus size={14} weight="fill"/>
                                     </CardPlusMinusButton>
                                 </CardFooterQtd>

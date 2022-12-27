@@ -26,13 +26,37 @@ export default function CartProvider({ children }: CartProviderProps) {
     const [cart, setCart] = useState<CartCoffeeData[]>([])
 
     function addCart(coffee: CartCoffeeData) {
-        console.log(coffee.price);
-        const newPrice = coffee.price * coffee.amount
 
-        const updatedCart = [...cart, {...coffee, price: newPrice}]
+        const verifyExistInCart = cart.find((product) => {
+            return product.id === coffee.id
+        })
 
-        setCart(updatedCart)
-        toast.success('Item adicionado ao carrinho!')
+        if(verifyExistInCart) {
+            console.log(verifyExistInCart);
+
+            const newPrice = coffee.price * coffee.amount
+
+            const updatedCart = cart.map(product => product.id === coffee.id ? {
+                ...product,
+                amount: Number(product.amount) + 1,
+                price: newPrice
+            } : product)
+
+            setCart(updatedCart)
+
+            toast.success('Item atualizado ao carrinho!')
+
+        } else {
+
+            const newPrice = coffee.price * coffee.amount
+
+            const addCoffee = [...cart, {...coffee, price: newPrice}]
+    
+            setCart(addCoffee)
+
+            toast.success('Item adicionado ao carrinho!')
+
+        }
 
     }
 
