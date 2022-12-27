@@ -14,7 +14,9 @@ CardButton,
 CardPrice,
 CardButtonRemove,
 CardSubmit,
-CardSubmitValues
+CardSubmitValues,
+CardSubmitTotalValues,
+CardSubmitButton
 } from './style'
 import { MapPin, CurrencyDollar, CreditCard, Money, Bank, Minus, Plus, Trash } from 'phosphor-react'
 import { useCart } from '../../contexts/CartContext';
@@ -28,8 +30,19 @@ export default function Cart () {
 
     const [type, setType] = useState('');
 
-    const [total, setTotal] = useState(0);
+    const totalValues =
+    formatMoney(
+      cart.reduce((sumTotal, product) => {
+        return sumTotal + product.price
+      }, 0)
+    )
 
+    const delivery = 7.00
+
+      
+    const totalWithDelivery = formatMoney(parseFloat(totalValues)  + delivery) 
+    console.log(totalValues)
+      
     
     function formatedPrice(price: number) {
 
@@ -128,18 +141,20 @@ export default function Cart () {
                     <CardSubmit>
                         <CardSubmitValues>
                             <span>Total de itens</span>
-                            <span>R$ {total}</span>
+                            <span>R$ {totalValues}</span>
                         </CardSubmitValues>
                         <CardSubmitValues>
                             <span>Entrega</span>
                             <span>R$ 7,00</span>
                         </CardSubmitValues>
-                        <CardSubmitValues>
-                            <span>Total</span>
-                            <span>R$ 37,00</span>
-                        </CardSubmitValues>
+                        <CardSubmitTotalValues>
+                            {/* <CardSubmitTotalValues> */}
+                                <span>Total</span>
+                                <span>R$ {totalWithDelivery}</span>
+                            {/* </CardSubmitTotalValues> */}
+                        </CardSubmitTotalValues>
                     </CardSubmit>
-                    <button>Confirmar</button>
+                    <CardSubmitButton>Confirmar</CardSubmitButton>
                 </CartConfirmRequest>
             </div>
 

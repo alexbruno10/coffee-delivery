@@ -1,4 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface CartProviderProps {
     children: ReactNode
@@ -27,8 +29,11 @@ export default function CartProvider({ children }: CartProviderProps) {
         console.log(coffee.price);
         const newPrice = coffee.price * coffee.amount
 
-        console.log(newPrice)
-        setCart([...cart, coffee])
+        const updatedCart = [...cart, {...coffee, price: newPrice}]
+
+        setCart(updatedCart)
+        toast.success('Item adicionado ao carrinho!')
+
     }
 
     return (

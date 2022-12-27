@@ -342,3 +342,44 @@ export const CardSubmitValues = styled.div`
     display: flex;
     justify-content: space-between;
 `
+
+export const CardSubmitTotalValues = styled.div`
+
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #574F4D;
+
+    flex: none;
+
+`
+
+export const CardSubmitButton = styled.button`
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    gap: 0.25rem;
+
+    width: 23rem;
+    height: 2.87rem;
+
+    background: ${({theme}) => theme.colors["yellow-brand"]};
+    border-radius: 0.375rem;
+    color: ${({theme}) => theme.colors["white"]};
+
+    border: none;
+
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover{
+        filter: brightness(0.9);
+    }
+    
+`
