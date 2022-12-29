@@ -381,5 +381,10 @@ export const CardSubmitButton = styled.button`
     &:hover{
         filter: brightness(0.9);
     }
+
+    &:disabled {
+        background: ${({theme}) => theme.colors["gray-100"]};
+        cursor: not-allowed;
+    }
     
 `

@@ -48,10 +48,6 @@ export default function Cart () {
     
     function formatedPrice(price: number) {
 
-        // const newTotal = total + price
-        
-        // setTotal(newTotal)
-
         const formatedPrice = formatMoney(price)
         return formatedPrice
     }
@@ -63,7 +59,6 @@ export default function Cart () {
         if(newAmountCoffee == 1) {
             return
         } else {
-            // setNewAmount(newAmountCoffee - 1)
             const newAmount = newAmountCoffee - 1 
             updatedCartAmount(id, newAmount)
         }
@@ -174,13 +169,11 @@ export default function Cart () {
                             <span>{cart.length > 0 ? 'R$ 7,00' : 'R$ 0,00'}</span>
                         </CardSubmitValues>
                         <CardSubmitTotalValues>
-                            {/* <CardSubmitTotalValues> */}
                                 <span>Total</span>
                                 <span>R$ {totalWithDelivery}</span>
-                            {/* </CardSubmitTotalValues> */}
                         </CardSubmitTotalValues>
                     </CardSubmit>
-                    <CardSubmitButton>Confirmar</CardSubmitButton>
+                    <CardSubmitButton disabled>Confirmar</CardSubmitButton>
                 </CartConfirmRequest>
             </div>
 
