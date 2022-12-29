@@ -26,20 +26,20 @@ import { formatMoney } from "../../utils/formatedMoney";
 
 export default function Cart () {
 
-    const { cart } = useCart();
+    const { cart, updatedCartAmount, deleteCoffeeInCart } = useCart();
 
     const [type, setType] = useState('');
 
-    const [amount, setAmount] = useState(1)
+    const [newAmount, setNewAmount] = useState(1)
 
     const totalValues =
     formatMoney(
       cart.reduce((sumTotal, product) => {
-        return sumTotal + product.price
+        return sumTotal + product.priceTotal
       }, 0)
     )
 
-    const delivery = 7.00
+    const delivery = cart.length > 0 ? 7.00 : 0.00
 
       
     const totalWithDelivery = formatMoney(parseFloat(totalValues)  + delivery) 
@@ -56,21 +56,28 @@ export default function Cart () {
         return formatedPrice
     }
 
-    function handleDecrementAmount(amount: number) {
-        const newAmount = amount
+    function handleDecrementAmount(id: number, amount: number) {
         
-        if(newAmount == 1) {
+        const newAmountCoffee = amount
+        
+        if(newAmountCoffee == 1) {
             return
-        } else [
-            setAmount(newAmount - 1)
-        ]
+        } else {
+            // setNewAmount(newAmountCoffee - 1)
+            const newAmount = newAmountCoffee - 1 
+            updatedCartAmount(id, newAmount)
+        }
         
     }
     
-    function handleIncrementAmount(amount: number) {
-        
-        const newAmount = amount
-        setAmount(newAmount +1)
+    function handleIncrementAmount(id: number, amount: number) {
+        const newAmountCoffee = amount
+        const newAmount = newAmountCoffee + 1
+        updatedCartAmount(id, newAmount)
+    }
+
+    function handleDelete(id: number) {
+        deleteCoffeeInCart(id)
     }
 
     return (
@@ -140,21 +147,21 @@ export default function Cart () {
                             <p>{cart.title}</p>
                             <CardButton>
                                 <CardFooterQtd>
-                                    <CardPlusMinusButton onClick={() => handleDecrementAmount(cart.amount)}>
+                                    <CardPlusMinusButton onClick={() => handleDecrementAmount(cart.id, cart.amount)}>
                                             <Minus size={14} weight="fill"/>
                                     </CardPlusMinusButton>
                                     <span>{cart.amount}</span>
-                                    <CardPlusMinusButton onClick={() => handleIncrementAmount(cart.amount)}>
+                                    <CardPlusMinusButton onClick={() => handleIncrementAmount(cart.id, cart.amount)}>
                                             <Plus size={14} weight="fill"/>
                                     </CardPlusMinusButton>
                                 </CardFooterQtd>
-                                <CardButtonRemove>
+                                <CardButtonRemove onClick={() => handleDelete(cart.id)}>
                                     <Trash size={15}/>
                                     <span>REMOVER</span>
                                 </CardButtonRemove>
                             </CardButton>
                         </div>
-                        <CardPrice>R$ {formatedPrice(cart.price)}</CardPrice>
+                        <CardPrice>R$ {formatedPrice(cart.priceTotal)}</CardPrice>
                         </CartConfirmCard>
                     ))}
                     <CardSubmit>
@@ -164,7 +171,7 @@ export default function Cart () {
                         </CardSubmitValues>
                         <CardSubmitValues>
                             <span>Entrega</span>
-                            <span>R$ 7,00</span>
+                            <span>{cart.length > 0 ? 'R$ 7,00' : 'R$ 0,00'}</span>
                         </CardSubmitValues>
                         <CardSubmitTotalValues>
                             {/* <CardSubmitTotalValues> */}

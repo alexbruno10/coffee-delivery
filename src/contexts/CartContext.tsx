@@ -11,12 +11,20 @@ interface CartCoffeeData {
     title: string,
     price: number,
     image: string,
+    amount: number,
+    priceTotal: number
+}
+
+interface CartUpdate {
+    id: number,
     amount: number
 }
 
 interface CartContextType {
     cart: CartCoffeeData[],
-    addCart: (coffee : CartCoffeeData) => void
+    addCart: (coffee : CartCoffeeData) => void,
+    updatedCartAmount: (id: number, amount: number) => void,
+    deleteCoffeeInCart: (id: number) => void
 }
 
 export const CartContext = createContext<CartContextType>({} as CartContextType)
@@ -38,30 +46,91 @@ export default function CartProvider({ children }: CartProviderProps) {
 
             const updatedCart = cart.map(product => product.id === coffee.id ? {
                 ...product,
-                amount: Number(product.amount) + 1,
-                price: newPrice
+                amount: coffee.amount,
+                priceTotal: newPrice
             } : product)
 
             setCart(updatedCart)
 
-            toast.success('Item atualizado ao carrinho!')
+            toast.success('☕️ Pedido atualizado!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
 
         } else {
 
             const newPrice = coffee.price * coffee.amount
 
-            const addCoffee = [...cart, {...coffee, price: newPrice}]
+            const addCoffee = [...cart, {...coffee, priceTotal: newPrice}]
     
             setCart(addCoffee)
 
-            toast.success('Item adicionado ao carrinho!')
+            // toast.success('Item adicionado ao carrinho!')
+
+            toast.success('☕️ Café adicionado!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
 
         }
 
     }
 
+    function updatedCartAmount(id: number, amount: number) {
+        const searchCart = cart.find((product) => {
+            return product.id === id
+        })
+
+        if(searchCart) {
+
+            const newPrice = searchCart.price * amount
+
+            const updatedCart = cart.map(product => product.id === id ? {
+                ...product,
+                amount: amount,
+                priceTotal: newPrice
+            } : product)
+
+            setCart(updatedCart)
+
+        }
+    }
+
+    function deleteCoffeeInCart(id: number) {
+        const filtered = cart.filter(cart => {
+            return cart.id != id;
+        });
+
+        if(filtered) {
+            setCart(filtered)
+
+            toast.error('Item removido!', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addCart }}>
+        <CartContext.Provider value={{ cart, addCart, updatedCartAmount, deleteCoffeeInCart }}>
             {children}
         </CartContext.Provider>
     )
