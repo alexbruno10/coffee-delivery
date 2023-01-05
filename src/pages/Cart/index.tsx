@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { CartContainer, 
 CartTitleRequest, 
 CartForm, 
@@ -22,9 +22,12 @@ import { MapPin, CurrencyDollar, CreditCard, Money, Bank, Minus, Plus, Trash } f
 import { useCart } from '../../contexts/CartContext';
 import { CardFooterQtd, CardPlusMinusButton } from '../../components/CoffeeCard/styles';
 import { formatMoney } from "../../utils/formatedMoney";
+import { useForm } from "react-hook-form";
 
 
 export default function Cart () {
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const { cart, updatedCartAmount, deleteCoffeeInCart } = useCart();
 
@@ -75,7 +78,14 @@ export default function Cart () {
         deleteCoffeeInCart(id)
     }
 
+
+    function handleForm(event: FormEvent) {
+        event.preventDefault()
+
+    }
+
     return (
+        <form action="" onSubmit={handleForm}>
         <CartContainer>
             <div>
                 <CartTitleRequest>Complete seu pedido</CartTitleRequest>
@@ -173,10 +183,11 @@ export default function Cart () {
                                 <span>R$ {totalWithDelivery}</span>
                         </CardSubmitTotalValues>
                     </CardSubmit>
-                    <CardSubmitButton disabled>Confirmar</CardSubmitButton>
+                    <CardSubmitButton>Confirmar</CardSubmitButton>
                 </CartConfirmRequest>
             </div>
 
         </CartContainer>
+        </form>
     )
 }
