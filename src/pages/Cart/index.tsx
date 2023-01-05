@@ -23,17 +23,41 @@ import { useCart } from '../../contexts/CartContext';
 import { CardFooterQtd, CardPlusMinusButton } from '../../components/CoffeeCard/styles';
 import { formatMoney } from "../../utils/formatedMoney";
 import { useForm } from "react-hook-form";
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
+
+interface Form {
+    cep: string,
+    street: string,
+    number: number,
+    complement?: string,
+    district: string,
+    city: string,
+    uf: string,
+    typePayment: string,
+    totalPaymment: number
+
+}
+
+const newCycleFormValidationSchema = zod.object({
+    cep: zod.string().min(1, 'Informe a tarefa'),
+
+  })
+  
+  type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
 
 export default function Cart () {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
 
     const { cart, updatedCartAmount, deleteCoffeeInCart } = useCart();
 
     const [type, setType] = useState('');
 
     const [newAmount, setNewAmount] = useState(1)
+
+    const [form, setForm] = useState<Form[]>([])
 
     const totalValues =
     formatMoney(
@@ -79,13 +103,13 @@ export default function Cart () {
     }
 
 
-    function handleForm(event: FormEvent) {
-        event.preventDefault()
-
+    function handleFormData(data: NewCycleFormData) {
+        console.log(data);
+        reset()
     }
 
     return (
-        <form action="" onSubmit={handleForm}>
+        <form onSubmit={handleSubmit(handleFormData)}>
         <CartContainer>
             <div>
                 <CartTitleRequest>Complete seu pedido</CartTitleRequest>
@@ -96,16 +120,16 @@ export default function Cart () {
                             <span>Informe o endereço onde deseja receber seu pedido</span>
                         </CartTitleForm>
                         <AddressFormContainer>
-                            <input type="text" className="cep" placeholder="CEP" required/>
-                            <input type="text" className="street" placeholder="Rua" required/>
+                            <input type="text" className="cep" placeholder="CEP" {...register("cep", { required: true })}/>
+                            <input type="text" className="street" placeholder="Rua" {...register("street", { required: true })}/>
 
-                            <input type="text" className="number" placeholder="Número" required/>
-                            <input type="text" className="complement" placeholder="Complemento"/>
+                            <input type="text" className="number" placeholder="Número" {...register("number", { required: true })}/>
+                            <input type="text" className="complement" placeholder="Complemento" {...register("complement")}/>
 
 
-                            <input type="text" className="district" placeholder="Bairro" required/>
-                            <input type="text" className="city" placeholder="Cidade" required/>
-                            <input type="text" className="uf" placeholder="UF" required/>
+                            <input type="text" className="district" placeholder="Bairro" {...register("district", { required: true })}/>
+                            <input type="text" className="city" placeholder="Cidade" {...register("cuty", { required: true })}/>
+                            <input type="text" className="uf" placeholder="UF" {...register("uf", { required: true })}/>
                         </AddressFormContainer>
                     </CartFormAddress>
 
@@ -119,6 +143,7 @@ export default function Cart () {
                             onClick={() => {setType('credit')}}
                             isActive={type === 'credit'}
                             color="gray"
+                            // {...register("credit")}
                             >
                                 <CreditCard size={20}/>CARTÃO DE CRÉDITO
                             </RadioBox>
@@ -126,6 +151,7 @@ export default function Cart () {
                             onClick={() => {setType('debit')}}
                             isActive={type === 'debit'}
                             color="gray"
+                            // {...register("debit")}
                             >
                                 <Bank size={20}/>CARTÃO DE DÉBITO
                             </RadioBox>
@@ -133,6 +159,7 @@ export default function Cart () {
                             onClick={() => {setType('money')}}
                             isActive={type === 'money'}
                             color="gray"
+                            // {...register("money")}
                             >
                                 <Money size={20}/>DINHEIRO
                             </RadioBox>
