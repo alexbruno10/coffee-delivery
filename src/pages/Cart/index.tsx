@@ -26,7 +26,20 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
-interface Form {
+type FormData = {
+    cep: string,
+    street: string,
+    number: number,
+    complement?: string,
+    district: string,
+    city: string,
+    uf: string,
+    typePayment: string,
+    totalPaymment: number
+
+}
+
+interface Data {
     cep: string,
     street: string,
     number: number,
@@ -40,7 +53,7 @@ interface Form {
 }
 
 const newCycleFormValidationSchema = zod.object({
-    cep: zod.string().min(1, 'Informe a tarefa'),
+    cep: zod.string().min(1, 'Informe o cep'),
 
   })
   
@@ -49,7 +62,7 @@ const newCycleFormValidationSchema = zod.object({
 
 export default function Cart () {
 
-    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<FormData>();
 
     const { cart, updatedCartAmount, deleteCoffeeInCart } = useCart();
 
@@ -57,7 +70,7 @@ export default function Cart () {
 
     const [newAmount, setNewAmount] = useState(1)
 
-    const [form, setForm] = useState<Form[]>([])
+    const [form, setForm] = useState<Data[]>([])
 
     const totalValues =
     formatMoney(
@@ -70,7 +83,6 @@ export default function Cart () {
 
       
     const totalWithDelivery = formatMoney(parseFloat(totalValues)  + delivery) 
-    console.log(totalValues)
       
     
     function formatedPrice(price: number) {
@@ -105,6 +117,8 @@ export default function Cart () {
 
     function handleFormData(data: NewCycleFormData) {
         console.log(data);
+        const addForm = {data, typePayment: type}
+        // setForm(data)
         reset()
     }
 
@@ -128,7 +142,7 @@ export default function Cart () {
 
 
                             <input type="text" className="district" placeholder="Bairro" {...register("district", { required: true })}/>
-                            <input type="text" className="city" placeholder="Cidade" {...register("cuty", { required: true })}/>
+                            <input type="text" className="city" placeholder="Cidade" {...register("city", { required: true })}/>
                             <input type="text" className="uf" placeholder="UF" {...register("uf", { required: true })}/>
                         </AddressFormContainer>
                     </CartFormAddress>
@@ -143,7 +157,7 @@ export default function Cart () {
                             onClick={() => {setType('credit')}}
                             isActive={type === 'credit'}
                             color="gray"
-                            // {...register("credit")}
+                         
                             >
                                 <CreditCard size={20}/>CARTÃO DE CRÉDITO
                             </RadioBox>
@@ -151,7 +165,7 @@ export default function Cart () {
                             onClick={() => {setType('debit')}}
                             isActive={type === 'debit'}
                             color="gray"
-                            // {...register("debit")}
+                           
                             >
                                 <Bank size={20}/>CARTÃO DE DÉBITO
                             </RadioBox>
@@ -159,7 +173,7 @@ export default function Cart () {
                             onClick={() => {setType('money')}}
                             isActive={type === 'money'}
                             color="gray"
-                            // {...register("money")}
+                           
                             >
                                 <Money size={20}/>DINHEIRO
                             </RadioBox>

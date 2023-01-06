@@ -215,7 +215,11 @@ const RadioColors = {
     purple: '#EBE5F9'
 }
 
-export const RadioBox = styled.button<RadioBoxProps>`
+export const RadioBox = styled.button.attrs(
+    { 
+        type: 'button' 
+    })
+    <RadioBoxProps>`
     height: 100%;
     border: 1px solid #d7d7d7;
     border-radius: 0.375rem;
