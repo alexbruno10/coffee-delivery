@@ -22,14 +22,14 @@ import { MapPin, CurrencyDollar, CreditCard, Money, Bank, Minus, Plus, Trash } f
 import { useCart } from '../../contexts/CartContext';
 import { CardFooterQtd, CardPlusMinusButton } from '../../components/CoffeeCard/styles';
 import { formatMoney } from "../../utils/formatedMoney";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
 type FormData = {
     cep: string,
     street: string,
-    number: number,
+    number: string,
     complement?: string,
     district: string,
     city: string,
@@ -42,22 +42,41 @@ type FormData = {
 interface Data {
     cep: string,
     street: string,
-    number: number,
-    complement?: string,
+    number: string,
+    complement: string | null,
     district: string,
     city: string,
     uf: string,
     typePayment: string,
-    totalPaymment: number
+    totalPaymment: string
 
 }
 
 const newCycleFormValidationSchema = zod.object({
     cep: zod.string().min(1, 'Informe o cep'),
-
+    street: zod.string().min(1, 'Informe a rua'),
+    number: zod.string().min(1, 'Informe o número'),
+    district: zod.string().min(1, 'Informe o destrito'),
+    complement: zod.string().min(1, 'Informe o complemento'),
+    city: zod.string().min(1, 'Informe a cidade'),
+    uf: zod.string().min(1, 'Informe o UF'),
   })
   
   type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
+  const NewCycleForm = useForm<NewCycleFormData>({
+    resolver: zodResolver(newCycleFormValidationSchema),
+    defaultValues: {
+      cep: '',
+      street: '',
+      city: '',
+      complement: '',
+      number: '',
+      district: '',
+      uf: ''
+    },
+  })
+
 
 
 export default function Cart () {
@@ -117,13 +136,14 @@ export default function Cart () {
 
     function handleFormData(data: NewCycleFormData) {
         console.log(data);
-        const addForm = {data, typePayment: type}
-        // setForm(data)
+        const addForm = {...data, typePayment: type, totalPayment: totalWithDelivery}
+        setForm(addForm)
         reset()
     }
 
     return (
         <form onSubmit={handleSubmit(handleFormData)}>
+        <FormProvider {...NewCycleForm}>
         <CartContainer>
             <div>
                 <CartTitleRequest>Complete seu pedido</CartTitleRequest>
@@ -229,6 +249,7 @@ export default function Cart () {
             </div>
 
         </CartContainer>
+        </FormProvider>
         </form>
     )
 }
