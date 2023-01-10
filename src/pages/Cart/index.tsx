@@ -26,70 +26,37 @@ import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
-type FormData = {
-    cep: string,
-    street: string,
-    number: string,
-    complement?: string,
-    district: string,
-    city: string,
-    uf: string,
-    typePayment: string,
-    totalPaymment: number
-
-}
-
-interface Data {
-    cep: string,
-    street: string,
-    number: string,
-    complement: string | null,
-    district: string,
-    city: string,
-    uf: string,
-    typePayment: string,
-    totalPaymment: string
-
-}
-
 const newCycleFormValidationSchema = zod.object({
     cep: zod.string().min(1, 'Informe o cep'),
     street: zod.string().min(1, 'Informe a rua'),
     number: zod.string().min(1, 'Informe o número'),
     district: zod.string().min(1, 'Informe o destrito'),
-    complement: zod.string().min(1, 'Informe o complemento'),
+    complement: zod.string(),
     city: zod.string().min(1, 'Informe a cidade'),
     uf: zod.string().min(1, 'Informe o UF'),
   })
   
-  type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+  export type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+  interface FormData extends NewCycleFormData {
+        typePayment: string,
+        totalPaymment: string
+  }
+  
+  export default function Cart () {
+    
+    const NewCycleForm = useForm<NewCycleFormData>({
+      resolver: zodResolver(newCycleFormValidationSchema),
+    });
 
-  const NewCycleForm = useForm<NewCycleFormData>({
-    resolver: zodResolver(newCycleFormValidationSchema),
-    defaultValues: {
-      cep: '',
-      street: '',
-      city: '',
-      complement: '',
-      number: '',
-      district: '',
-      uf: ''
-    },
-  })
-
-
-
-export default function Cart () {
-
-    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<FormData>();
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<NewCycleFormData>();
 
     const { cart, updatedCartAmount, deleteCoffeeInCart } = useCart();
 
     const [type, setType] = useState('');
 
-    const [newAmount, setNewAmount] = useState(1)
+    const [form, setForm] = useState([]);
 
-    const [form, setForm] = useState<Data[]>([])
+    const [newAmount, setNewAmount] = useState(1)
 
     const totalValues =
     formatMoney(
@@ -135,10 +102,11 @@ export default function Cart () {
 
 
     function handleFormData(data: NewCycleFormData) {
-        console.log(data);
+
         const addForm = {...data, typePayment: type, totalPayment: totalWithDelivery}
-        setForm(addForm)
-        reset()
+        console.log(addForm)
+        setForm([addForm])
+        // reset()
     }
 
     return (
@@ -155,15 +123,15 @@ export default function Cart () {
                         </CartTitleForm>
                         <AddressFormContainer>
                             <input type="text" className="cep" placeholder="CEP" {...register("cep", { required: true })}/>
-                            <input type="text" className="street" placeholder="Rua" {...register("street", { required: true })}/>
+                            <input type="text" className="street" placeholder="Rua" {...register("street", { required: true })} />
 
                             <input type="text" className="number" placeholder="Número" {...register("number", { required: true })}/>
-                            <input type="text" className="complement" placeholder="Complemento" {...register("complement")}/>
+                            <input type="text" className="complement" placeholder="Complemento" {...register("complement")} />
 
 
                             <input type="text" className="district" placeholder="Bairro" {...register("district", { required: true })}/>
-                            <input type="text" className="city" placeholder="Cidade" {...register("city", { required: true })}/>
-                            <input type="text" className="uf" placeholder="UF" {...register("uf", { required: true })}/>
+                            <input type="text" className="city" placeholder="Cidade" {...register("city", { required: true })} />
+                            <input type="text" className="uf" placeholder="UF" {...register("uf", { required: true })} />
                         </AddressFormContainer>
                     </CartFormAddress>
 
