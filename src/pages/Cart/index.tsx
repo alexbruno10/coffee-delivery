@@ -106,7 +106,8 @@ const newCycleFormValidationSchema = zod.object({
         const addForm = {...data, typePayment: type, totalPayment: totalWithDelivery}
         console.log(addForm)
         setForm([addForm])
-        // reset()
+        reset()
+        window.location.href="/completed";
     }
 
     return (
