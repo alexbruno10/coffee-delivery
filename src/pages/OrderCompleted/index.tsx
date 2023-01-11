@@ -3,8 +3,11 @@ import {
 CompletedOrderContainer, 
 CompletedOrderTitle, 
 CompletedOrderSubTitle, 
-CompletedOrderContent 
+CompletedOrderContent,
+CompletedOrderContentInfo 
 } from "./style";
+import MotoDelivery from '../../assets/coffee/delivery.svg'
+import { MapPin, CurrencyDollar, Timer } from 'phosphor-react'
 
 export default function OrderCompleted() {
 
@@ -21,8 +24,11 @@ export default function OrderCompleted() {
                 Agora é só aguardar que logo o café chegará até você
             </CompletedOrderSubTitle>
             <CompletedOrderContent>
-                <span>conteudo</span>
-                <span>img</span>
+                <CompletedOrderContentInfo> 
+                    <Timer size={20} weight="fill" />
+                    conteudo 
+                </CompletedOrderContentInfo>
+                <img src={MotoDelivery} alt="" />
             </CompletedOrderContent>
         </CompletedOrderContainer>
     )

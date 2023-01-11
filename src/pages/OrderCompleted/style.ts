@@ -31,6 +31,31 @@ export const CompletedOrderSubTitle = styled.div`
 `
 
 export const CompletedOrderContent = styled.div`
+    display: flex;
     width: 100%;
-    gap: 6.25rem;
+    justify-content: space-between;
+    padding-top: 2.5rem;
+
+    img {
+        height: 17.5rem;
+    }
 `
+
+export const CompletedOrderContentInfo = styled.div`
+
+    padding: 40px;
+    gap: 32px;
+
+    width: 32.87rem;
+    height: 16.87rem;
+    left: calc(50% - 526px/2 - 297px);
+    top: 296px;
+
+    border: 2px solid transparent;
+    border-radius: 6px 36px;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #DBAC2C, #8047F8);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+`
+
