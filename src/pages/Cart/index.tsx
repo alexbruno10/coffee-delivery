@@ -25,6 +25,7 @@ import { formatMoney } from "../../utils/formatedMoney";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+import { useNavigate } from 'react-router-dom';
 
 const newCycleFormValidationSchema = zod.object({
     cep: zod.string().min(1, 'Informe o cep'),
@@ -37,26 +38,18 @@ const newCycleFormValidationSchema = zod.object({
   })
   
   export type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
-  interface FormData extends NewCycleFormData {
-        typePayment: string,
-        totalPaymment: string
-  }
-  
+
   export default function Cart () {
     
     const NewCycleForm = useForm<NewCycleFormData>({
       resolver: zodResolver(newCycleFormValidationSchema),
     });
 
-    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm<NewCycleFormData>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<NewCycleFormData>();
 
     const { cart, updatedCartAmount, deleteCoffeeInCart } = useCart();
 
     const [type, setType] = useState('');
-
-    const [form, setForm] = useState([]);
-
-    const [newAmount, setNewAmount] = useState(1)
 
     const totalValues =
     formatMoney(
@@ -69,6 +62,8 @@ const newCycleFormValidationSchema = zod.object({
 
       
     const totalWithDelivery = formatMoney(parseFloat(totalValues)  + delivery) 
+
+    const navigate = useNavigate();
       
     
     function formatedPrice(price: number) {
@@ -103,11 +98,11 @@ const newCycleFormValidationSchema = zod.object({
 
     function handleFormData(data: NewCycleFormData) {
 
-        const addForm = {...data, typePayment: type, totalPayment: totalWithDelivery}
-        console.log(addForm)
-        setForm([addForm])
+        const form = {...data, typePayment: type, totalPayment: totalWithDelivery}
         reset()
-        window.location.href="/completed";
+        navigate("/completed", {
+            state: form,
+        });
     }
 
     return (
@@ -213,7 +208,7 @@ const newCycleFormValidationSchema = zod.object({
                                 <span>R$ {totalWithDelivery}</span>
                         </CardSubmitTotalValues>
                     </CardSubmit>
-                    <CardSubmitButton>Confirmar</CardSubmitButton>
+                    <CardSubmitButton disabled={cart.length == 0 || type == ''}>Confirmar</CardSubmitButton>
                 </CartConfirmRequest>
             </div>
 
