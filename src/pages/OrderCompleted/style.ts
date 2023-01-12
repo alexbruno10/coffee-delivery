@@ -58,4 +58,31 @@ export const CompletedOrderContentInfo = styled.div`
     background-clip: padding-box, border-box;
 
 `
+export const CompletedOrderContentInfoLocalization = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 0.75rem;
 
+    width: 354px;
+    height: 42px;
+
+`
+
+export const CompletedOrderContentInfoIcons = styled.div`
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: #8047F8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        height: 1rem;
+    }
+`
