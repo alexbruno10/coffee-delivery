@@ -4,6 +4,7 @@ export const IconContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    padding-bottom: 2.5rem;
 `
 
 interface IconBgProps {
