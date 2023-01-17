@@ -14,5 +14,6 @@ Projeto desenvolvido que consiste em uma loja com delivery de cafés. A aplicaç
 * React Hook Form
 * Toastify
 
+<br />
 
-Desenvolvido por Álex Bruno
+<p align="center">Desenvolvido por Alex Bruno</p>
