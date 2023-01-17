@@ -48,12 +48,12 @@ export default function OrderCompleted() {
                     />
                     <IconTitle 
                     icon={<Timer weight="fill"/>}
-                    text={'20 min - 30 min'}
+                    text={'Prazo de entrega: 20 min - 30 min'}
                     iconColor={colors['yellow-brand']}
                     />
                     <IconTitle 
                     icon={<CurrencyDollar weight="fill"/>}
-                    text={typePayment}
+                    text={`Método de pagamento: ${typePayment}`}
                     iconColor={colors['yellow-dark']}
                     />
                 </CompletedOrderContentInfo>
